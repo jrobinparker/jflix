@@ -52,6 +52,7 @@ export const Header = styled.div`
     padding: 0.8em 1.2em 0.8em 1.2em;
     user-select: none;
     align-items: center;
+    width: 100%;
 
     img {
         filter: brightness(0) invert(1);
@@ -77,7 +78,8 @@ export const Body = styled.div`
     padding: 0.8em 1.2em 0.8em 1.2em;
     user-select: none;
     align-items: center;
-
+    width: 100%;
+    
     @media (max-width: 600px) {
         font-size: 16px;
         line-height: 22px;
