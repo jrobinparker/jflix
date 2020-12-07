@@ -10,9 +10,8 @@ export default function SignIn() {
 
   const isValid = !emailAddress || !password
 
-  const handleSignIn = (e, emailAddress, password) => {
+  const handleSignIn = e => {
     e.preventDefault()
-    isValid(emailAddress, password)
   }
 
   return (
@@ -23,14 +22,16 @@ export default function SignIn() {
           {error && <Form.Error>{error}</Form.Error>}
           <Form.Base onSubmit={handleSignIn} method='POST'>
             <Form.Input
-              placeholder={emailAddress}
-              value={({ target }) => setEmailAddress((target.value))}
+              placeholder='Email Address'
+              value={emailAddress}
+              onChange={({ target }) => setEmailAddress((target.value))}
             />
             <Form.Input
               type='password'
               autoComplete='off'
-              placeholder={password}
-              value={({ target}) => setPassword(target.value)}
+              placeholder='Password'
+              value={password}
+              onChange={({ target }) => setPassword(target.value)}
             />
             <Form.Submit
               disabled={isValid}
