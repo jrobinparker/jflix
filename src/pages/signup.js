@@ -1,10 +1,14 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useContext } from 'react';
+import { useHistory } from 'react-router-dom';
+import { FirebaseContext } from '../context/firebase';
 import { Form } from '../components/';
 import HeaderContainer from '../containers/header';
 import FooterContainer from '../containers/footer';
 import * as ROUTES from '../constants/routes';
 
 export default function SignIn() {
+  const history = useHistory();
+  const { firebase } = useContext(FirebaseContext);
   const [ firstName, setFirstName ] = useState('');
   const [ lastName, setLastName ] = useState('');
   const [ emailAddress, setEmailAddress ] = useState('');
@@ -14,7 +18,24 @@ export default function SignIn() {
   const isValid = !firstName || !lastName || !emailAddress || !password
 
   const handleSignUp = e => {
-    e.preventDefault()
+    e.preventDefault();
+    firebase
+      .auth()
+      .createUserWithEmailAndPassword(emailAddress, password)
+      .then(result =>
+        result.user
+        .updateProfile({
+          displayName: firstName,
+          photoURL: Math.floor(Math.random() * 5) + 1
+        })
+      )
+      .then(() => {
+        setEmailAddress('')
+        setPassword('')
+        setError('')
+        history.push(ROUTES.BROWSE)
+      })
+      .catch(error => setError(error.message))
   }
 
   return (

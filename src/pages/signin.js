@@ -11,7 +11,7 @@ export default function SignIn() {
   const isValid = !emailAddress || !password
 
   const handleSignIn = e => {
-    e.preventDefault()
+    e.preventDefault();
   }
 
   return (
