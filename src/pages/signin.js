@@ -7,8 +7,11 @@ export default function SignIn() {
   const [ emailAddress, setEmailAddress ] = useState('');
   const [ password, setPassword ] = useState('');
 
-  const handleSignIn = e => {
+  const isValid = !emailAddress || !password
+
+  const handleSignIn = (e, emailAddress, password) => {
     e.preventDefault()
+    isValid(emailAddress, password)
   }
 
   return (
@@ -28,7 +31,7 @@ export default function SignIn() {
             value={({ target}) => setPassword(target.value)}
           />
           <Form.Submit
-            disabled={false}
+            disabled={isValid}
             type='submit'>
             Sign In
           </Form.Submit>
