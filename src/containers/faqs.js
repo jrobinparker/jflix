@@ -19,6 +19,8 @@ export default function FaqsContainer() {
 
       <OptForm>
         <OptForm.Input placeholder='Email Address' />
+        <OptForm.Button>Try it Now</OptForm.Button>
+        <OptForm.Text>Ready to watch? Enter your email address to create or restart your membership.</OptForm.Text>
       </OptForm>
     </Accordion>
   )

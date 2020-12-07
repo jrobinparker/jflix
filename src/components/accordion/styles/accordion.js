@@ -8,19 +8,19 @@ export const Container = styled.section`
 export const Frame = styled.div`
     margin-bottom: 10px;
     max-width: 1200px;
-`;
+`
 
 export const Inner = styled.div`
     display: flex;
     padding: 70px 45px;
     flex-direction: column;
+    max-width: 815px;
     margin: auto;
 `;
 
 export const Item = styled.div`
     color: white;
     margin-bottom: 10px;
-    max-width: 670px;
 
     &:first-of-type {
         margin-top: 3em;
@@ -79,7 +79,7 @@ export const Body = styled.div`
     user-select: none;
     align-items: center;
     width: 100%;
-    
+
     @media (max-width: 600px) {
         font-size: 16px;
         line-height: 22px;
