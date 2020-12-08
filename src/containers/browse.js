@@ -9,6 +9,7 @@ export default function BrowseContainer() {
   const [ profile, setProfile ] = useState({});
   const [ category, setCategory ] = useState('series');
   const [ loading, setLoading ] = useState(false);
+  const [ searchTerm, setSearchTerm ] = useState('');
   const { firebase } = useContext(FirebaseContext);
 
   const user = {
@@ -35,7 +36,10 @@ export default function BrowseContainer() {
               Films
             </Header.Link>
           </Header.Group>
-        </Header.Frame>
+          <Header.Group>
+              <Header.Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+          </Header.Group>
+          </Header.Frame>
         <Header.Feature>
             <Header.FeatureCallOut>Watch Joker Now</Header.FeatureCallOut>
             <Header.Text>
