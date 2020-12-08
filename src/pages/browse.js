@@ -9,6 +9,6 @@ export default function Browse() {
   const slides = selectionMap({series, films});
 
   return (
-    <BrowseContainer />
+    <BrowseContainer slides={slides} />
   )
 }
