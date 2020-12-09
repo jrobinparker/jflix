@@ -1,10 +1,8 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import { FirebaseContext } from './context/firebase';
 import { GlobalStyles } from './global-styles';
-
-import { seedDatabase } from './seed';
 
 const config = {
     apiKey: "AIzaSyBlfjAN-dZHOW5EDVb_xl2i-OJas-TkmMU",
@@ -18,8 +16,6 @@ const config = {
 };
 
 const firebase = window.firebase.initializeApp(config);
-
-//seedDatabase(firebase);
 
 ReactDOM.render(
     <Fragment>

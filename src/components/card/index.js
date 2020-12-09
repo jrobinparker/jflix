@@ -2,20 +2,22 @@ import React, { useState, useContext, createContext } from 'react';
 
 import {
   Container,
+  Content,
   Group,
   Title,
   Subtitle,
   Text,
   Feature,
   FeatureTitle,
+  FeatureContent,
+  FeatureText,
   FeatureClose,
   Maturity,
-  Context,
   Meta,
   Entities,
   Item,
   Image
-} from './styles';
+} from './styles/card';
 
 const FeatureContext = createContext();
 
@@ -55,7 +57,7 @@ Card.Meta = function CardMeta({ children, ...restProps }) {
 }
 
 Card.Item = function CardItem({ item, children, ...restProps }) {
-  const { setShowFeature, setItemFeature } = useContext(FeatureContent);
+  const { setShowFeature, setItemFeature } = useContext(FeatureContext);
 
   return (
     <Item
@@ -76,7 +78,7 @@ Card.Image = function CardImage({ ...restProps }) {
 }
 
 Card.Feature = function CardFeature({ children, category, ...restProps }) {
-  const { showFeature, itemFeature, setShowFeature } = useContext(FeatureContext);
+  const { showFeature, itemFeature, setShowFeature, setItemFeature } = useContext(FeatureContext);
 
   return showFeature ? (
     <Feature src={`/images/${category}/${itemFeature.genre}/${itemFeature.slug}/large.jpg`}>
