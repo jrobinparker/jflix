@@ -1,6 +1,6 @@
 import React, { useState, useContext, createContext } from 'react';
 import { createPortal } from 'react-dom';
-import { Container, Button, Overlay, Inner } from './styles/player';
+import { Container, Button, Overlay, Inner, Close } from './styles/player';
 
 export const PlayerContext = createContext();
 
@@ -18,12 +18,13 @@ Player.Video = function PlayerVideo({ ...restProps }) {
   const { showPlayer, setShowPlayer } = useContext(PlayerContext);
 
   return showPlayer ? createPortal(
-    <Overlay onClikc={() => setShowPlayer(false)}>
+    <Overlay onClick={() => setShowPlayer(false)}>
       <Inner>
         <video id="netflix-player" controls>
           <source src="/videos/bunny.mp4" type="video/mp4" />
         </video>
       </Inner>
+      <Close />
     </Overlay>,
     document.body
   ) : null
@@ -32,5 +33,5 @@ Player.Video = function PlayerVideo({ ...restProps }) {
 Player.Button = function PlayerButton({ ...restProps }) {
   const { showPlayer, setShowPlayer } = useContext(PlayerContext);
 
-  return <Button onClick={() => setShowPlayer(!showPlayer)}>Player</Button>
+  return <Button onClick={() => setShowPlayer(!showPlayer)}>Play</Button>
 }
