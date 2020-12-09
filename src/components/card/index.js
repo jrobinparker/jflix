@@ -9,7 +9,6 @@ import {
   Text,
   Feature,
   FeatureTitle,
-  FeatureContent,
   FeatureText,
   FeatureClose,
   Maturity,
@@ -78,7 +77,7 @@ Card.Image = function CardImage({ ...restProps }) {
 }
 
 Card.Feature = function CardFeature({ children, category, ...restProps }) {
-  const { showFeature, itemFeature, setShowFeature, setItemFeature } = useContext(FeatureContext);
+  const { showFeature, itemFeature, setShowFeature  } = useContext(FeatureContext);
 
   return showFeature ? (
     <Feature src={`/images/${category}/${itemFeature.genre}/${itemFeature.slug}/large.jpg`}>

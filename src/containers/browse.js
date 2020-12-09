@@ -38,7 +38,7 @@ export default function BrowseContainer({ slides }) {
     } else {
       setSlideRows(slides[category])
     }
-  }, [searchTerm])
+  }, [searchTerm, category, slideRows, slides])
 
   return user.displayName ? (
     <Fragment>
